@@ -9,3 +9,11 @@ body {
 :root {
   color-scheme: dark light;
 }
+
+html,
+body {
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}

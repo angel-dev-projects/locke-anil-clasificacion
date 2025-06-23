@@ -1,0 +1,20 @@
+<div class="overflow-x-auto w-full">
+  <div class="flex gap-3 justify-center items-center min-w-max px-4 py-2">
+    @for (week of matchweeks(); track week) {
+    <div
+      role="button"
+      tabindex="0"
+      (click)="selectMatchWeek(week)"
+      (keydown.enter)="selectMatchWeek(week)"
+      (keydown.space)="selectMatchWeek(week)"
+      [ngClass]="{
+        'bg-green-500 text-white': selected === week,
+        'bg-gray-100 text-gray-800 hover:bg-gray-200': selected !== week
+      }"
+      class="cursor-pointer px-6 py-2 min-w-[100px] text-center text-sm font-medium rounded-full shadow-sm transition-colors duration-200 outline-none focus:ring-2 focus:ring-green-400"
+    >
+      Jornada {{ week }}
+    </div>
+    }
+  </div>
+</div>

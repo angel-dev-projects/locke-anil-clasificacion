@@ -1,0 +1,51 @@
+<div class="relative overflow-x-auto rounded-lg shadow-md">
+  <table class="min-w-full table-auto text-sm text-gray-700 dark:text-gray-300">
+    <thead
+      class="text-xs uppercase bg-gray-100 dark:bg-gray-700 dark:text-gray-400"
+    >
+      <tr>
+        <th scope="col" class="px-2 py-3 text-center w-12">#</th>
+        <th scope="col" class="px-4 py-3 text-left">Nombre</th>
+        <th scope="col" class="px-4 py-3 text-center">Puntos</th>
+        <th scope="col" class="px-4 py-3 text-center">PDF</th>
+        <th scope="col" class="px-4 py-3 text-center">PDC</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for(player of players(); track player.id) {
+      <tr
+        class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 transition-colors"
+      >
+        <td
+          class="px-2 py-3 text-center font-semibold text-gray-900 dark:text-white"
+        >
+          {{ $index + 1 }}
+        </td>
+        <td
+          class="px-4 py-3 font-medium text-gray-900 dark:text-white whitespace-nowrap"
+        >
+          {{ player.name }}
+        </td>
+        <td class="px-4 py-3 text-center">
+          {{ player.points }}
+        </td>
+        <td class="px-4 py-3 text-center">
+          {{ player.pdf }}
+        </td>
+        <td class="px-4 py-3 text-center">
+          {{ player.pdc }}
+        </td>
+      </tr>
+      } @empty {
+      <tr class="bg-white dark:bg-gray-800">
+        <td
+          colspan="5"
+          class="px-6 py-4 text-center text-gray-500 dark:text-gray-400"
+        >
+          No hay jugadores
+        </td>
+      </tr>
+      }
+    </tbody>
+  </table>
+</div>

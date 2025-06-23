@@ -1,0 +1,10 @@
+<section class="mx-auto w-full max-w-screen-lg px-4">
+  @if(matchService.loading()) {
+  <p>Cargando jornadas...</p>
+  } @else {
+  <app-select-matchweek
+    [matchweeks]="matchService.matchweeks()"
+    (matchweekSelected)="onMatchWeekChange($event)"
+  />
+  }
+</section>

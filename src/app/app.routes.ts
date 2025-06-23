@@ -9,10 +9,10 @@ export const routes: Routes = [
     loadChildren: () => import('./auth/features/auth.routes'),
   },
 
-  // Standings
+  // Home
   {
     canActivateChild: [privateGuard()],
-    path: 'standings',
+    path: 'home',
     loadComponent: () => import('./shared/ui/layout.component'),
     loadChildren: () => import('./views/features/views.routes'),
   },
@@ -20,6 +20,6 @@ export const routes: Routes = [
   // Default route
   {
     path: '**',
-    redirectTo: '/standings',
+    redirectTo: '/home/standings',
   },
 ];
