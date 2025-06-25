@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
-import { PlayerService } from '../../data-access/player.service';
 import { TableComponent } from "../../ui/table/table.component";
 import { CommonModule } from '@angular/common';
+import { MatchService } from '../../data-access/match.service';
 
 @Component({
   selector: 'app-standings',
@@ -10,5 +10,5 @@ import { CommonModule } from '@angular/common';
   templateUrl: './standings.component.html',
 })
 export default class StandingsComponent {
-  playerService = inject(PlayerService);
+  matchService = inject(MatchService);
 }

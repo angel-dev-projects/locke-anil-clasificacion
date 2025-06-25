@@ -13,6 +13,7 @@ export class MatchWeekSelectorComponent {
 
   @Output() matchweekSelected = new EventEmitter<number>();
 
+  // Method to select a match week and emit the selected value
   selectMatchWeek(option: number) {
     this.selected = option;
     this.matchweekSelected.emit(option);

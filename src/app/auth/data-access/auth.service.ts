@@ -12,6 +12,8 @@ export interface User {
 export class AuthService {
   private _auth = inject(Auth);
 
+  // Sign in with email and password
+  // Returns a promise that resolves with the user credentials
   signIn(user: User) {
     return signInWithEmailAndPassword(this._auth, user.email, user.password);
   }

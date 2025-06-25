@@ -1,7 +1,7 @@
 <section class="mx-auto w-full max-w-screen-lg px-4">
-  @if(playerService.loading()) {
+  @if(matchService.loading()) {
   <p>Cargando clasificación...</p>
   } @else {
-  <app-table [players]="playerService.getPlayers()" />
+  <app-table [players]="matchService.playersStats()" />
   }
 </section>

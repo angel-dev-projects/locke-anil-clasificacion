@@ -1,0 +1,77 @@
+@for (match of filteredMatches(); let i = $index; let last = $last; track
+match.id) {
+<div
+  class="match-item flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 p-4 max-w-md mx-auto my-4"
+>
+  <!-- Player 1 -->
+  <div
+    class="flex flex-col items-center justify-center w-40 sm:w-32 py-2 px-4 border rounded-lg transition-all duration-300 text-center"
+    [ngClass]="{
+      'bg-yellow-100 border-yellow-500 scale-105 shadow-lg':
+        match.player1_points > match.player2_points,
+      'bg-blue-50 border-blue-500 opacity-70':
+        match.player1_points <= match.player2_points
+    }"
+  >
+    <span
+      class="font-semibold text-base sm:text-lg"
+      [ngClass]="{
+        'text-yellow-700': match.player1_points > match.player2_points,
+        'text-blue-700': match.player1_points <= match.player2_points
+      }"
+    >
+      {{ match.player1 }}
+    </span>
+    <span
+      class="text-xl sm:text-2xl font-bold mt-1"
+      [ngClass]="{
+        'text-yellow-900': match.player1_points > match.player2_points,
+        'text-blue-900': match.player1_points <= match.player2_points
+      }"
+    >
+      {{ match.player1_points }}
+    </span>
+  </div>
+
+  <!-- VS -->
+  <img
+    src="images/street_fighter_versus.png"
+    alt="VS"
+    class="w-16 sm:w-14 h-auto"
+  />
+
+  <!-- Player 2 -->
+  <div
+    class="flex flex-col items-center justify-center w-40 sm:w-32 py-2 px-4 border rounded-lg transition-all duration-300 text-center"
+    [ngClass]="{
+      'bg-yellow-100 border-yellow-500 scale-105 shadow-lg':
+        match.player2_points > match.player1_points,
+      'bg-red-50 border-red-500 opacity-70':
+        match.player2_points <= match.player1_points
+    }"
+  >
+    <span
+      class="font-semibold text-base sm:text-lg"
+      [ngClass]="{
+        'text-yellow-700': match.player2_points > match.player1_points,
+        'text-red-700': match.player2_points <= match.player1_points
+      }"
+    >
+      {{ match.player2 }}
+    </span>
+    <span
+      class="text-xl sm:text-2xl font-bold mt-1"
+      [ngClass]="{
+        'text-yellow-900': match.player2_points > match.player1_points,
+        'text-red-900': match.player2_points <= match.player1_points
+      }"
+    >
+      {{ match.player2_points }}
+    </span>
+  </div>
+</div>
+
+<!-- Línea separadora solo si no es el último -->
+@if (!last) {
+<div class="h-px bg-white opacity-20 max-w-md mx-auto"></div>
+} }

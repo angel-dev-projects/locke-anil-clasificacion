@@ -17,6 +17,7 @@ export default class SignInComponent {
   private _authService = inject(AuthService);
   private _router = inject(Router);
 
+  // Reactive form validation methods
   isRequired(field: 'email' | 'password') {
     return isRequired(field, this.form);
   }
@@ -25,6 +26,8 @@ export default class SignInComponent {
     return hasEmailError(this.form);
   }
 
+  // Reactive form definition
+  // Using FormBuilder to create a form group with controls
   form = this._formBuilder.group<FormSignIn>({
     email: this._formBuilder.control('', [
       Validators.required,
@@ -33,6 +36,8 @@ export default class SignInComponent {
     password: this._formBuilder.control('', Validators.required),
   });
 
+  // Form submission method
+  // Validates the form and calls the AuthService to sign in
   async submit() {
     const { email, password } = this.form.value;
 
@@ -51,6 +56,8 @@ export default class SignInComponent {
     }
   }
 
+  // Parses Firebase error codes and returns user-friendly messages
+  // This method maps Firebase error codes to human-readable messages
   private _parseFirebaseError(error: any): string {
     const code = error?.code;
 

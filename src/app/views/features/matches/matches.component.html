@@ -6,5 +6,11 @@
     [matchweeks]="matchService.matchweeks()"
     (matchweekSelected)="onMatchWeekChange($event)"
   />
+  } @if(matchService.loading()) {
+  <p>Cargando combates...</p>
+  } @else {
+  <app-match-list
+    [filteredMatches]="filteredMatches()"
+  />
   }
 </section>

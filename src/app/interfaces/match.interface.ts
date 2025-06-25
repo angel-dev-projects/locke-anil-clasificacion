@@ -5,5 +5,4 @@ export interface Match {
   player2: string;
   player1_points: number;
   player2_points: number;
-  winner: string;
 }

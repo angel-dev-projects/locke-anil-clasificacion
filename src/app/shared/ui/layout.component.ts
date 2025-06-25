@@ -7,15 +7,16 @@ import { AuthStateService } from '../data-access/auth-state.service';
   imports: [RouterModule, RouterLink],
   selector: 'app-layout',
   template: `
-    <header class="bg-white dark:bg-gray-900 shadow-md">
+    <header class="bg-white dark:bg-gray-900 shadow-md mb-5">
       <div
         class="mx-auto max-w-screen-lg px-4 flex items-center justify-between h-[80px]"
       >
         <!-- Logo -->
         <a
-          class="text-2xl font-bold text-gray-900 dark:text-white"
+          class="flex items-center text-2xl font-semibold text-gray-900 dark:text-white"
           routerLink="/home/standings"
         >
+          <img class="w-10 h-10 mr-2" src="images/pokeball.png" alt="Logo" />
           Locke Añil
         </a>
 
@@ -89,11 +90,13 @@ import { AuthStateService } from '../data-access/auth-state.service';
         >
           <a
             routerLink="/home/standings"
+            routerLinkActive="font-bold text-green-600 dark:text-green-400"
             class="hover:text-green-600 dark:hover:text-green-400"
             >Clasificación</a
           >
           <a
             routerLink="/home/matches"
+            routerLinkActive="font-bold text-green-600 dark:text-green-400"
             class="hover:text-green-600 dark:hover:text-green-400"
             >Combates</a
           >
@@ -106,8 +109,9 @@ import { AuthStateService } from '../data-access/auth-state.service';
         </nav>
       </div>
       }
-      <router-outlet />
     </header>
+
+    <router-outlet />
   `,
 })
 export default class LayoutCompoent {
@@ -116,10 +120,12 @@ export default class LayoutCompoent {
 
   menuOpen = false;
 
+  // Method to toggle the mobile menu visibility
   toggleMenu() {
     this.menuOpen = !this.menuOpen;
   }
 
+  // Method to log out the user
   async logOut() {
     await this._authState.logOut();
     this._router.navigateByUrl('/auth/sign-in');

@@ -1,7 +1,6 @@
 export interface Player {
-  id?: string;
   name: string;
-  points: string;
-  pdf: string;
+  points: number;
+  pdf: number;
   pdc: number;
 }
