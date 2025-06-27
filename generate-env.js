@@ -5,7 +5,7 @@ require("dotenv").config();
 // Ruta del archivo de salida
 const targetPath = path.resolve(
   __dirname,
-  "src/environments/firebase.environment.ts"
+  "src/app/environments/firebase.environment.ts"
 );
 
 // Contenido del archivo a escribir
